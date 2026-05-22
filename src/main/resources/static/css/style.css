@@ -1,0 +1,63 @@
+/* Màu chủ đạo */
+:root {
+    --primary: #0d6efd;
+    --success: #198754;
+    --danger: #dc3545;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Card ví tiền */
+.wallet-card {
+    border-radius: 16px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.wallet-card:hover {
+    transform: translateY(-4px);
+}
+
+.wallet-card .balance {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #198754;
+}
+
+/* Tổng tiền ngoài màn hình chính */
+.total-balance-card {
+    background: linear-gradient(135deg, #0d6efd, #0099ff);
+    color: white;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.total-balance-card .amount {
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+/* Bảng giao dịch */
+.transaction-row:hover {
+    background-color: #f0f7ff;
+}
+
+/* Badge danh mục */
+.category-badge {
+    background: #e8f4fd;
+    color: #0d6efd;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* Form modal */
+.modal-header {
+    background: #0d6efd;
+    color: white;
+}
