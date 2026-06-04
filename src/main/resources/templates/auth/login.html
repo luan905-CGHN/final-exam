@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng nhập</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4">
+            <div class="text-center mb-4">
+                <i class="bi bi-wallet2 text-primary" style="font-size: 3rem;"></i>
+                <h2 class="fw-bold text-primary mt-2">Quản lý Chi Tiêu</h2>
+            </div>
+            <div class="card shadow-sm border-0 rounded-4">
+                <div class="card-body p-4">
+                    <h4 class="card-title mb-4 text-center">Đăng nhập</h4>
+
+                    <div th:if="${param.error}" class="alert alert-danger py-2">
+                        <i class="bi bi-exclamation-circle"></i>
+                        Username hoặc mật khẩu không đúng
+                    </div>
+                    <div th:if="${param.logout}" class="alert alert-success py-2">
+                        <i class="bi bi-check-circle"></i>
+                        Đăng xuất thành công
+                    </div>
+                    <div th:if="${param.registered}" class="alert alert-success py-2">
+                        <i class="bi bi-check-circle"></i>
+                        Đăng ký thành công! Vui lòng đăng nhập.
+                    </div>
+
+                    <form th:action="@{/auth/login}" method="post">
+                        <div class="mb-3">
+                            <label class="form-label fw-medium">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-person"></i>
+                                </span>
+                                <input type="text" name="username"
+                                       class="form-control"
+                                       placeholder="Nhập email"
+                                       required autofocus>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-medium">Mật khẩu</label>
+                            <div class="input-group">
+                                <span class="input-group-text">
+                                    <i class="bi bi-lock"></i>
+                                </span>
+                                <input type="password" name="password"
+                                       class="form-control"
+                                       placeholder="6-8 ký tự"
+                                       required>
+                            </div>
+                        </div>
+                        <button type="submit"
+                                class="btn btn-primary w-100 py-2 fw-medium">
+                            <i class="bi bi-box-arrow-in-right"></i> Đăng nhập
+                        </button>
+                    </form>
+
+                    <hr>
+                    <p class="text-center text-muted mb-0">
+                        Chưa có tài khoản?
+                    <div class="text-center mt-3">
+                        <a th:href="@{/auth/forgot-password}" class="text-muted small">
+                            <i class="bi bi-question-circle"></i> Quên mật khẩu?
+                        </a>
+                    </div>
+                        <a th:href="@{/auth/register}" class="text-primary fw-medium">
+                            Đăng ký ngay
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
